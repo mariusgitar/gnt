@@ -135,7 +135,7 @@ footer{text-align:center;font-size:13px;color:var(--mute);padding:24px 18px 0}
     <div id="msgs"></div>
     <h2 style="margin-top:18px">What he has done</h2>
     <div class="log" id="log"></div>
-    <p class="opts"><button id="realtime">Back to real time</button><button id="reset">Reset answers (this browser)</button></p>
+    <p class="opts"><button id="realtime">Back to real time</button><button id="reset">Reset progress and answers (this browser)</button></p>
   </div>
 
   <div class="lb" id="lb" hidden role="dialog" aria-label="Photo"><button id="lbClose">Close</button><figure><img alt=""><figcaption style="margin-top:8px;font-size:14px"></figcaption></figure></div>
@@ -467,14 +467,14 @@ document.addEventListener('click',ev=>{
   else{report('code-attempt',v);document.getElementById('cErr').textContent='Not quite. Look for the circle.';}}
  else if(b.dataset.copy){const t=b.parentElement.querySelector('code').textContent;
   (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent='Copied'},()=>{b.textContent='Select text'});}
- else if(b.id==='reset'){S={};W={phase:'breathe',n:0,t0:0,iv:0};save();render();}
+ else if(b.id==='reset'){S={};W={phase:'breathe',n:0,t0:0,iv:0};save();try{localStorage.removeItem(KEY+'-p')}catch(_){};PR={step:-1,times:{}};render();}
  else if(b.id==='realtime'){simIdx=null;render();}
  else if(b.id==='next'||b.id==='prev'){const cur=simIdx===null?visible().length-1:simIdx;simIdx=Math.max(-1,Math.min(E.length-1,cur+(b.id==='next'?1:-1)));render();
   window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
   if(b.id==='next'&&simIdx>=0)toast(E[simIdx].sms.replace('{link}','gnt.link/0042'));}
 });
 document.getElementById('clock').addEventListener('input',e=>{simIdx=+e.target.value-1;render();});
-window.addEventListener('hashchange',()=>{syncHash();render();});
+window.addEventListener('hashchange',()=>location.reload()); // a new link or mode always starts fresh
 new ResizeObserver(drawMap).observe(document.getElementById('map'));new ResizeObserver(drawBerlin).observe(document.getElementById('bmap'));
 if(DEMO){simIdx=-1;document.getElementById('flow').hidden=false;document.body.classList.add('flowing');} // click-through test mode
 render();
