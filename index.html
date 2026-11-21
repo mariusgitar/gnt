@@ -142,7 +142,7 @@ footer{text-align:center;font-size:13px;color:var(--mute);padding:24px 18px 0}
   <div class="lb" id="lb" hidden role="dialog" aria-label="Photo"><button id="lbClose">Close</button><figure><img alt=""><figcaption style="margin-top:8px;font-size:14px"></figcaption></figure></div>
   <div class="toast" id="toast" role="status" aria-live="polite"><b>WhatsApp · now</b><span id="toastTxt"></span></div>
   <div class="flow" id="flow" hidden><button id="prev" aria-label="Previous event">Back</button><span id="flowLbl"></span><button class="pri" id="next">Next event</button></div>
-  <footer>GNT Ltd. is not responsible for parcels that develop feelings. <span style="opacity:.5">· v10</span></footer>
+  <footer>GNT Ltd. is not responsible for parcels that develop feelings. <span style="opacity:.5">· v11</span></footer>
 </div>
 
 <script>
@@ -213,20 +213,20 @@ const E = [
   photos:[{label:'Späti DJ, set one',src:'img/spati_1.jpg'},{label:'Späti DJ, set two',src:'img/spati_2.jpg'}],game:'bingo',
   sms:'GNT: Your parcel is on a Späti tour. We have lost count of the stops. {link}'},
  {id:'glienicke',at:'2026-11-21T19:00:00+01:00',place:'Groß Glienicke',ll:[13.11,52.468],short:'Groß Glienicke',status:'Recovered',mood:'Full and happy',
-  title:'Bike ride, boat ride, pasta',body:'Slightly wobbly after the Späti tour, the parcel borrowed a bike, rode out to the lakes, took a boat across at sunset and ended up at an Italian restaurant with old friends, just like that time during lockdown. Final delivery coming soon.',
+  title:'Bike ride, boat ride, pasta',body:'Slightly wobbly after the Späti tour, the parcel borrowed a bike, rode out to the lakes, took a boat across at sunset and ended up at an Italian restaurant with old friends, just like that time during lockdown. Final delivery tomorrow.',
   photos:[{label:'Sunset at the lake',src:'img/glienicke_1.jpg'},{label:'Waiting for the boat',src:'img/glienicke_2.jpg'},{label:'The Italian place',src:'img/glienicke_3.jpg'}],
-  sms:'GNT: Your parcel is having pasta in Groß Glienicke. Final delivery coming soon! {link}'},
- {id:'sunday',at:'2026-11-22T10:00:00+01:00',place:'GNT depot, Berlin',ll:[13.3,52.528],short:'GNT depot',status:'Paused: Sonntagsruhe',mood:'Festive, but stuck',eta:'Monday, first thing',
-  title:'Happy birthday! (Delivery paused)',body:'GNT regrets to inform you that German law does not allow parcel deliveries on Sundays. The parcel is furious and has filed a complaint with the Bundesamt für Sonntagsruhe. Nevertheless, it insisted on passing on a birthday message it has been carrying all the way from Norway. New delivery time: Monday, first thing.',
-  note:'Bjørn, courier: "I offered to deliver it anyway. I was told this is Germany."',
-  game:'card',sms:'GNT: Happy birthday, Vishal! Unfortunately German law forbids deliveries on Sundays. The parcel has a message for you anyway: {link}'},
- {id:'westend',at:'2026-11-23T10:00:00+01:00',place:'Westendallee, Berlin',ll:[13.262,52.513],short:'Westendallee',status:'Out for delivery',mood:'Almost home',
+  sms:'GNT: Your parcel is having pasta in Groß Glienicke. Final delivery tomorrow! {link}'},
+ {id:'sunday',at:'2026-11-22T09:00:00+01:00',place:'GNT depot, Berlin',ll:[13.3,52.528],short:'GNT depot',status:'Priority birthday delivery',mood:'Festive',eta:'Today',
+  title:'Happy birthday! Priority delivery approved',body:'GNT has been informed that today is a special day. German law normally forbids parcel deliveries on Sundays, but Bjørn has obtained a special birthday exemption (form B-22, signed in triplicate). Before the final leg, the parcel insists on passing on a message it has carried all the way from Norway.',
+  note:'Bjørn, courier: "The form took longer than the ICE."',
+  game:'card',sms:'GNT: Happy birthday, Vishal! Your parcel has been upgraded to Priority Birthday Delivery. It has a message for you first: {link}'},
+ {id:'westend',at:'2026-11-22T10:30:00+01:00',place:'Westendallee, Berlin',ll:[13.262,52.513],short:'Westendallee',status:'Out for delivery',mood:'Almost home',
   title:'Handed to a trusted local agent',body:'In line with GNT\'s educational mission, the final leg is handled by a trusted local agent who knows Westendallee very well and claims to blend travel with personal development, intercultural understanding, and holistic learning. Nobody at GNT knows what that means either.',
   photos:[{label:'The garden',src:'img/westend_4.jpg'},{label:'Two dads',src:'img/westend_3.jpg'},{label:'Liftoff',src:'img/westend_1.jpg'},{label:'Playtime',src:'img/westend_2.jpg'}],
   sms:'GNT: Your parcel is with a trusted local agent. Delivery imminent. {link}'},
- {id:'delivered',at:'2026-11-23T12:00:00+01:00',place:'Westendallee, Berlin',ll:[13.262,52.513],short:'Westendallee',status:'Delivered',done:true,mood:'Home',eta:'Now',
-  title:'Delivered. Better late than never!',body:'Check your mailbox. Then come back here, tell us what you found, and enter the magic word to unlock the real gift.',
-  game:'code',sms:'GNT: DELIVERED. Check your mailbox, (belated) birthday boy. Then come back here: {link}'}
+ {id:'delivered',at:'2026-11-22T11:00:00+01:00',place:'Westendallee, Berlin',ll:[13.262,52.513],short:'Westendallee',status:'Delivered',done:true,mood:'Home',eta:'Now',
+  title:'Delivered. Happy birthday!',body:'Check your mailbox. Then come back here, tell us what you found, and enter the magic word to unlock the real gift.',
+  game:'code',sms:'GNT: DELIVERED. Check your mailbox, birthday boy. Then come back here: {link}'}
 ];
 E.forEach(e=>e.t=Date.parse(e.at));
 
@@ -247,7 +247,7 @@ const PERSONA={
  mitte:['happy','grad','Pitch me something. Disrupt me.'],
  bday:['happy','party','IT IS YOUR BIRTHDAY!!! Also, I am almost there.'],
  ploetzensee:['cold','beanie','Wim says it is all in the mind. My mind is cold.'],
- sunday:['worried','party','IT IS YOUR BIRTHDAY and I am stuck in a depot. This is fine.'],
+ sunday:['happy','party','IT IS YOUR BIRTHDAY!!! Bjørn got us an exemption.'],
  glienicke:['happy','','Carbonara. No regrets.'],
  westend:['cool','','Final briefing complete. Holistic learning: achieved.'],
  delivered:['happy','party','Hi. I am in your mailbox. Come and get me!']
@@ -354,7 +354,7 @@ function render(){
   const pp=PERSONA[last.id]||['happy','',''];
   st.innerHTML=`<div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><span class="pill ${cls}">${esc(last.status)}</span><span class="lbl">Updated ${fmt(tOf(last))}</span></div>
   <div class="me"><div class="bob">${avatar(pp[0],pp[1])}</div><div class="bubble"><small>Your parcel says</small>${esc(pp[2])}</div></div>
-  <div class="lbl" style="margin-top:12px">Estimated delivery</div><h1>${last.done?'Delivered':v.some(e=>e.id==='sunday')?'Monday, Nov 23':'Sunday, Nov 22'}</h1><div class="lbl">${esc(last.eta&&!last.done?'Status: '+last.eta:'± 1 detour, ± 2 emotional breaks')}</div>
+  <div class="lbl" style="margin-top:12px">Estimated delivery</div><h1>${last.done?'Delivered':'Sunday, Nov 22'}</h1><div class="lbl">${esc(last.eta&&!last.done?'Status: '+last.eta:'± 1 detour, ± 2 emotional breaks')}</div>
   <div class="bar" style="grid-template-columns:repeat(${E.length},minmax(0,1fr))">${E.map((e,i)=>`<i class="${i<v.length?'on':''}"></i>`).join('')}</div>`;}
  document.getElementById('stats').innerHTML=`<div class="stat"><span class="lbl">Parcel mood</span><strong>${esc(last?last.mood:'Packed')}</strong></div><div class="stat"><span class="lbl">Current location</span><strong>${esc(last?last.place:'Sandefjord')}</strong></div>`;
  const tl=document.getElementById('tl');
