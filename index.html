@@ -142,7 +142,7 @@ footer{text-align:center;font-size:13px;color:var(--mute);padding:24px 18px 0}
   <div class="lb" id="lb" hidden role="dialog" aria-label="Photo"><button id="lbClose">Close</button><figure><img alt=""><figcaption style="margin-top:8px;font-size:14px"></figcaption></figure></div>
   <div class="toast" id="toast" role="status" aria-live="polite"><b>WhatsApp · now</b><span id="toastTxt"></span></div>
   <div class="flow" id="flow" hidden><button id="prev" aria-label="Previous event">Back</button><span id="flowLbl"></span><button class="pri" id="next">Next event</button></div>
-  <footer>GNT Ltd. is not responsible for parcels that develop feelings. <span style="opacity:.5">· v9</span></footer>
+  <footer>GNT Ltd. is not responsible for parcels that develop feelings. <span style="opacity:.5">· v10</span></footer>
 </div>
 
 <script>
@@ -303,9 +303,9 @@ const HINTS={
    A('plates')?`The ${A('plates')==='Bowl'?'Bornholm bowl':'Christmas plate'} survived the ICE detour. Barely.`:''].filter(Boolean).join(' '),
  mitte:()=>A('witness')?`In improv, the parcel was cast as "a man who says: ${cut(A('witness'),40)}". The audience did not believe it either.`:'',
  spati:()=>A('pitch')?`A regular at Späti number four has already pitched your idea ("${cut(A('pitch'),60)}") to three strangers and a dog.`:'The Späti regulars are still waiting for your startup pitch.',
- glienicke:()=>A('plates')?`Dinner was served in the ${A('plates')==='Bowl'?'Bornholm bowl':'Christmas plate'}. It has never been happier.`:'',
+ glienicke:()=>A('plates')?`Dinner was served in the ${A('plates')==='Bowl'?'Bornholm bowl':'Christmas plate'}. The parcel was so moved that it left it behind as a tip. The waiter cried. The parcel did not regret it until the bike ride home.`:'',
  sunday:()=>A('bingo')?`Bjørn has completed your Späti bingo card in your honour: ${cut(A('bingo'),20)}.`:'',
- westend:()=>{const n=['plates','witness','wanted','quiz','pitch','bingo'].filter(k=>A(k)).length;return n?`The agent has reviewed your file: ${n} completed GNT procedures${A('plates')==='Bowl'?', correct bowl':''}${A('witness')?', one airtight alibi':''}${A('wanted')?', one strongly worded description of Mr. Farradi':''}. Delivery approved.`:''}
+ westend:()=>{const n=['plates','witness','wanted','quiz','pitch','bingo'].filter(k=>A(k)).length;return n?`The agent has reviewed your file: ${n} completed GNT procedures${A('plates')?', one Bornholm item (donated to an Italian restaurant, non-refundable)':''}${A('witness')?', one airtight alibi':''}${A('wanted')?', one strongly worded description of Mr. Farradi':''}. Delivery approved.`:''}
 };
 // ===== Games =====
 const G={
