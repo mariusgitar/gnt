@@ -142,7 +142,7 @@ footer{text-align:center;font-size:13px;color:var(--mute);padding:24px 18px 0}
   <div class="lb" id="lb" hidden role="dialog" aria-label="Photo"><button id="lbClose">Close</button><figure><img alt=""><figcaption style="margin-top:8px;font-size:14px"></figcaption></figure></div>
   <div class="toast" id="toast" role="status" aria-live="polite"><b>WhatsApp · now</b><span id="toastTxt"></span></div>
   <div class="flow" id="flow" hidden><button id="prev" aria-label="Previous event">Back</button><span id="flowLbl"></span><button class="pri" id="next">Next event</button></div>
-  <footer>GNT Ltd. is not responsible for parcels that develop feelings. <span style="opacity:.5">· v11</span></footer>
+  <footer>GNT Ltd. is not responsible for parcels that develop feelings. <span style="opacity:.5">· v12</span></footer>
 </div>
 
 <script>
@@ -158,10 +158,11 @@ const LOG_URL = 'https://script.google.com/macros/s/AKfycbyxvoBnZ3iub3enHPvkOLPB
 const MODE = 'links';
 const CARD = [
  'Dear Vishal,',
- 'Happy birthday! Somewhere between Coffee Club and too many startup ideas at IUBH, the Späti tours and long evenings in your garden at Westendallee, you became one of the people I am most grateful for.',
- 'Distance makes it far too easy to let months go by without a proper talk. So this year I wanted to give you something that fixes that: real time together, coffee in hand, even with a sea between us.',
+ 'Happy birthday, old man! It’s weird how I somehow can’t manage to keep in touch on a regular basis, but I’ll vibe code an entire app and terrorize you with spam for a week when it’s your birthday. I guess I just wanted to let you know how much I really appreciate our friendship on your big day!',
+ 'Somewhere between fighting Noah, Coffee Club and too many startup ideas at IUBH, the Späti tours and moving trucks, you became one of the people I am most grateful for. You are the friend who gives me the most perspective in life. One who listens, asks the most critical questions and challenges me in the right ways. Also, with a great sense of humor and just the right flavor of sarcasm 😅',
+ 'So since this year’s birthday is a big, big one, and I want to keep more in touch, I wanted to give you a gift that keeps us a bit closer: real time together, coffee in hand, even with a sea between us.',
  'Thank you for being the kind of friend who makes Berlin feel like home, even from Norway.',
- 'Your friend, Marius'
+ 'Your gullible Norwegian friend, Marius'
 ];
 const CODE_WORDS = ['bonanza','coffee','roaster','berlin','kaffe','kaffee','bean','bohne']; // unlocks if his answer contains any of these, any case
 
@@ -216,17 +217,14 @@ const E = [
   title:'Bike ride, boat ride, pasta',body:'Slightly wobbly after the Späti tour, the parcel borrowed a bike, rode out to the lakes, took a boat across at sunset and ended up at an Italian restaurant with old friends, just like that time during lockdown. Final delivery tomorrow.',
   photos:[{label:'Sunset at the lake',src:'img/glienicke_1.jpg'},{label:'Waiting for the boat',src:'img/glienicke_2.jpg'},{label:'The Italian place',src:'img/glienicke_3.jpg'}],
   sms:'GNT: Your parcel is having pasta in Groß Glienicke. Final delivery tomorrow! {link}'},
- {id:'sunday',at:'2026-11-22T09:00:00+01:00',place:'GNT depot, Berlin',ll:[13.3,52.528],short:'GNT depot',status:'Priority birthday delivery',mood:'Festive',eta:'Today',
-  title:'Happy birthday! Priority delivery approved',body:'GNT has been informed that today is a special day. German law normally forbids parcel deliveries on Sundays, but Bjørn has obtained a special birthday exemption (form B-22, signed in triplicate). Before the final leg, the parcel insists on passing on a message it has carried all the way from Norway.',
-  note:'Bjørn, courier: "The form took longer than the ICE."',
-  game:'card',sms:'GNT: Happy birthday, Vishal! Your parcel has been upgraded to Priority Birthday Delivery. It has a message for you first: {link}'},
- {id:'westend',at:'2026-11-22T10:30:00+01:00',place:'Westendallee, Berlin',ll:[13.262,52.513],short:'Westendallee',status:'Out for delivery',mood:'Almost home',
-  title:'Handed to a trusted local agent',body:'In line with GNT\'s educational mission, the final leg is handled by a trusted local agent who knows Westendallee very well and claims to blend travel with personal development, intercultural understanding, and holistic learning. Nobody at GNT knows what that means either.',
+ {id:'westend',at:'2026-11-22T09:00:00+01:00',place:'Westendallee, Berlin',ll:[13.262,52.513],short:'Westendallee',status:'Priority birthday delivery',mood:'Almost home',
+  title:'Handed to a trusted local agent',body:'Happy birthday from everyone at GNT (Bjørn)! A special Sunday exemption has been granted (form B-22, signed in triplicate). In line with GNT\'s educational mission, the final leg is handled by a trusted local agent who knows Westendallee very well and claims to blend travel with personal development, intercultural understanding, and holistic learning. Nobody at GNT knows what that means either.',
   photos:[{label:'The garden',src:'img/westend_4.jpg'},{label:'Two dads',src:'img/westend_3.jpg'},{label:'Liftoff',src:'img/westend_1.jpg'},{label:'Playtime',src:'img/westend_2.jpg'}],
-  sms:'GNT: Your parcel is with a trusted local agent. Delivery imminent. {link}'},
- {id:'delivered',at:'2026-11-22T11:00:00+01:00',place:'Westendallee, Berlin',ll:[13.262,52.513],short:'Westendallee',status:'Delivered',done:true,mood:'Home',eta:'Now',
-  title:'Delivered. Happy birthday!',body:'Check your mailbox. Then come back here, tell us what you found, and enter the magic word to unlock the real gift.',
-  game:'code',sms:'GNT: DELIVERED. Check your mailbox, birthday boy. Then come back here: {link}'}
+  sms:'GNT: Happy birthday, Vishal! Your parcel has been handed to a trusted local agent for the final leg: {link}'},
+ {id:'delivered',at:'2026-11-22T10:30:00+01:00',place:'Somewhere in your home',ll:[13.262,52.513],short:'Westendallee',status:'Delivered (hiding)',done:true,mood:'Terrified',eta:'Now',
+  title:'Help! The parcel has gone into hiding',body:'The parcel is afraid of being dragged into the forest by the trusted agent and forced into an embodied growth journey. It is currently hiding under your bed and waiting for you to save it.',
+  note:'Bjørn, courier: "I checked the mailbox. Only bills. Look somewhere low, dark and slightly dusty."',
+  game:'code',sms:'GNT URGENT: Your parcel has escaped the trusted agent and is hiding somewhere in your home. It is waiting for you to save it: {link}'}
 ];
 E.forEach(e=>e.t=Date.parse(e.at));
 
@@ -250,7 +248,7 @@ const PERSONA={
  sunday:['happy','party','IT IS YOUR BIRTHDAY!!! Bjørn got us an exemption.'],
  glienicke:['happy','','Carbonara. No regrets.'],
  westend:['cool','','Final briefing complete. Holistic learning: achieved.'],
- delivered:['happy','party','Hi. I am in your mailbox. Come and get me!']
+ delivered:['worried','','Please come and get me. I am under the bed. It is dusty.']
 };
 function avatar(face,acc){
  const tint={cold:'#9CC3E6',queasy:'#B9C98A'}[face]||'#C99A66',dark={cold:'#7AA6CF',queasy:'#98AB68'}[face]||'#A87B4B';
@@ -336,9 +334,9 @@ const G={
   `<div class="game" id="wim"><h4>The Wim Hof method, GNT edition</h4><p class="lbl" id="wimTxt" aria-live="polite">Step 1 of 3: 10 power breaths. Tap fast. Faster than feels reasonable.</p>
   <div class="lung" id="lung">4 °C</div><button class="pri" id="wimBtn" style="width:100%">Breathe in (0/10)</button></div>`,
  card:()=>`<div class="postcard"><div>${CARD.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="stamp">GNT<br>0042<br>★</div></div>`,
- code:()=>{const ok=S.code;return (ok?'':`<div class="game"><h4>Proof of delivery</h4><label class="lbl" for="d-txt">Describe what you found in your mailbox. Be as detailed as you like.</label><textarea id="d-txt" rows="3"></textarea>
-  <label class="lbl" for="c-txt">The magic word: type one of the words written in the circle</label><input type="text" id="c-txt" autocomplete="off"><button class="pri" id="codeBtn" style="width:100%">Unlock the real gift</button><div id="cErr" class="lbl" aria-live="polite" style="margin-top:8px"></div></div>`)+
-  (ok?`<div class="pass"><div style="display:flex;justify-content:space-between;align-items:start;gap:10px"><div><small style="color:#FDBA74;font-weight:600">Unlocked</small><div style="font-size:26px;font-weight:800;line-height:1.1">Coffee Date Pass</div></div><span class="pill" style="background:#FDBA74;color:#14202B">4 rides</span></div>
+ code:()=>{const ok=S.code;return (ok?'':`<div class="game"><h4>Rescue the parcel</h4><label class="lbl" for="d-txt">Found it? Describe what you found, and where. Be as detailed as you like.</label><textarea id="d-txt" rows="3"></textarea>
+  <label class="lbl" for="c-txt">The magic word: type one of the words written in the circle</label><input type="text" id="c-txt" autocomplete="off"><button class="pri" id="codeBtn" style="width:100%">Unlock your birthday gift</button><div id="cErr" class="lbl" aria-live="polite" style="margin-top:8px"></div></div>`)+
+  (ok?`<div class="postcard"><div>${CARD.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="stamp">GNT<br>0042<br>★</div></div><div class="pass"><div style="display:flex;justify-content:space-between;align-items:start;gap:10px"><div><small style="color:#FDBA74;font-weight:600">Unlocked</small><div style="font-size:26px;font-weight:800;line-height:1.1">Coffee Date Pass</div></div><span class="pill" style="background:#FDBA74;color:#14202B">4 rides</span></div>
   <p style="color:#E5E7EB;font-size:14px;margin:8px 0 0">Valid worldwide. Brew the same beans at the same time, one on each side of the screen. No expiry date. No refunds.</p>
   <div class="slots"><i>1</i><i>2</i><i>3</i><i>4</i></div><ol><li>The birthday beans</li><li>Coffee Club reunion</li><li>Blue Ocean brew</li><li>Garden coffee at Westendallee, in person</li></ol>
   </div>`:'')}
@@ -484,7 +482,7 @@ document.addEventListener('click',ev=>{
  else if(b.id==='codeBtn'){const v=document.getElementById('c-txt').value.trim();
   const d=document.getElementById('d-txt').value.trim();if(d)report('found',d);
   const n=v.toLowerCase().replace(/[^a-zäöü]/g,'');
-  if(n&&CODE_WORDS.some(w=>n.includes(w))){report('code',v);render();confetti();const pc=document.querySelector('.pass');if(pc)pc.scrollIntoView({behavior:'smooth',block:'center'});}
+  if(n&&CODE_WORDS.some(w=>n.includes(w))){report('code',v);render();confetti();const pc=document.querySelector('.postcard');if(pc)pc.scrollIntoView({behavior:'smooth',block:'center'});}
   else{report('code-attempt',v);document.getElementById('cErr').textContent='Not quite. Look for the circle.';}}
  else if(b.dataset.copy){const t=b.parentElement.querySelector('code').textContent;
   (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent='Copied'},()=>{b.textContent='Select text'});}
